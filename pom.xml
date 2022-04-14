@@ -9,6 +9,7 @@
     <version>1.0</version>
     <modules>
         <module>kafka-maven</module>
+        <module>kafka-boot</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -73,20 +74,6 @@
                 <version>${gson.version}</version>
             </dependency>
         </dependencies>
-
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -1,6 +1,7 @@
 package space.muqingcloud;
 
 import cn.hutool.core.util.IdUtil;
+import com.google.gson.Gson;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 
@@ -39,7 +40,8 @@ public class MySimpleSynchronizationProducer {
         // 发送消息,得到消息发送的元数据
         RecordMetadata metadata = producer.send(producerRecord).get();
         // 打印得到的消息发送的元数据
-        System.out.println("同步方式发送消息结果：" + "topic:" + metadata.topic() + "\tpartition:" + metadata.partition() + "\toffset:" + metadata.offset());
+        // System.out.println("同步方式发送消息结果：" + "topic:" + metadata.topic() + "\tpartition:" + metadata.partition() + "\toffset:" + metadata.offset());
+        System.out.println(new Gson().toJson(metadata));
     }
 
 }

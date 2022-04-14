@@ -1,7 +1,7 @@
 package space.muqingcloud;
 
+import com.google.gson.Gson;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -35,9 +35,7 @@ public class MySimpleConsumer {
              * poll() API 是拉取消息的长轮询
              */
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
-            for (ConsumerRecord<String, String> record : records) {
-                System.out.printf("收到消息：partition = %d,offset = %d, key =%s, value = %s%n", record.partition(), record.offset(), record.key(), record.value());
-            }
+            records.forEach(record -> System.out.println(new Gson().toJson(record)));
         }
     }
 }

@@ -1,6 +1,7 @@
 package space.muqingcloud;
 
 import cn.hutool.core.util.IdUtil;
+import com.google.gson.Gson;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -49,7 +50,8 @@ public class MySimpleAsynchronousProducer {
                     System.err.println("发送消息失败：" + exception.getStackTrace());
                 }
                 if (metadata != null) {
-                    System.out.println("异步方式发送消息结果：" + "topic:" + metadata.topic() + "\tpartition:" + metadata.partition() + "\toffset:" + metadata.offset());
+                    // System.out.println("异步方式发送消息结果：" + "topic:" + metadata.topic() + "\tpartition:" + metadata.partition() + "\toffset:" + metadata.offset());
+                    System.out.println(new Gson().toJson(metadata));
                 }
                 countDownLatch.countDown(); // 发送完消息后countDownLatch进行减一操作
             });

@@ -34,3 +34,4 @@ spring:
       # 手动调用Acknowledgment.acknowledge()后立即提交，一般使用这种
       # MANUAL_IMMEDIATE
       ack-mode: MANUAL_IMMEDIATE
+      missing-topics-fatal: false

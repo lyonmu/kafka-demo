@@ -36,8 +36,10 @@ public class consumer {
     )
     public void listenGroupPro(ConsumerRecord<String, String> record, Acknowledgment ack) {
         String value = record.value();
+        System.out.println("==============");
         System.out.println(value);
         System.out.println(record);
+        System.out.println("==============");
         //手动提交offset
         ack.acknowledge();
     }
